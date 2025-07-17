@@ -9,7 +9,7 @@ score <- function(symbols) {
   # Get prize
   if (same) {
     payouts <- c("DD" = 100, "7" = 80, "BBB" = "40", "BB" = 25,
-                 "B" = 10, "C" = 10)
+                 "B" = 10, "C" = 10, "0" = 0)
     prize <- as.integer(unname(payouts[symbols[1]]))
   } else if (all(bars)) {
     prize  <- 5
