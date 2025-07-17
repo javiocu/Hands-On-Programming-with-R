@@ -3,7 +3,6 @@
 
 play <- function() {
   symbols <- get_symbols()
-  prize <- structure(score(symbols), "symbols" = symbols)
-  class(prize) <- "slots"
+  prize <- structure(score(symbols), "symbols" = symbols, "class" = "slots")
   prize
   }
