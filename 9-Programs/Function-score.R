@@ -1,16 +1,26 @@
-# Score function to calculate the score o the symbols obtains previously
-
 score <- function(symbols) {
-  if ( # all the same ) {
-    prize <- #look the table for the prize
-} else if (# all bars) {
-    prize <- 5$
+  # Identify the case
+  same <- symbols[1] == symbols[2] & symbols[2] == symbols[3]
+  bars <- symbols %in% c("B", "BB", "BBB")
+  
+  # Reset the prize
+  prize <- 0
+  
+  # Get prize
+  if (same) {
+    payouts <- c("DD" = 100, "7" = 80, "BBB" = "40", "BB" = 25,
+                 "B" = 10, "C" = 10)
+    prize <- as.integer(unname(payouts[symbols[1]]))
+  } else if (all(bars)) {
+    prize  <- 5
   } else {
-    # count cherries
-    prize <- # calculate it
+    cherries <- sum(symbols %in% "C")
+    prize <- c(0, 2, 5)[cherries + 1]
   }
+  
+  # Adjust the prize because the diamonds
+  diamonds <- sum(symbols %in% "DD")
+  prize * 2 ^ diamonds
 }
+ 
 
-
-# count diamonds 
-# double the prize if necessary
