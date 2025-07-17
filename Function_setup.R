@@ -11,7 +11,7 @@ setup <- function(deck) {
   }
   
   SHUFFLE <- function() {
-    ordere <- sample(1:length(DECK), size = length(DECK))
+    ordere <- sample(1:length(DECK$face), size = length(DECK$face))
     assign("deck", DECK[ordere,], envir = parent.env(environment()))
   }
   
